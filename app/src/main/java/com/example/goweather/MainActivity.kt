@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Response
 
@@ -22,9 +24,27 @@ class MainActivity: Activity() {
         textDescription = findViewById(R.id.description)
         requestButton = findViewById(R.id.button)
         requestButton.setOnClickListener {
+            textTemperature.text = "Temperature: "
+            textWind.text = "Wind: "
+            textDescription.text = "Description: "
 
             val client =ApiClient.client.create(ApiInterface::class.java)
-            client.getWeather().enqueue(object:retrofit2.Callback<WeatherResponse>{
+            client.getWeatherRx()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ result ->
+                    textTemperature.append("${result?.temperature}")
+                    textWind.append("${result?.wind}")
+                    textDescription.append("${result?.description}")
+                }, { error ->
+                    Toast.makeText(this@MainActivity, "Error", Toast.LENGTH_SHORT).show()
+                })
+
+        }
+    }
+}
+/*
+client.getWeather().enqueue(object:retrofit2.Callback<WeatherResponse>{
                 override fun onResponse(
                     call: retrofit2.Call<WeatherResponse>,
                     response: retrofit2.Response<WeatherResponse>
@@ -41,6 +61,6 @@ class MainActivity: Activity() {
                 }
 
             })
-        }
-    }
-}
+
+
+*/
