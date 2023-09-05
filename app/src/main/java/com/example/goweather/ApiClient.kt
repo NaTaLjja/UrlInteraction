@@ -12,12 +12,4 @@ object ApiClient {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
-/*
-    val client = Retrofit.Builder()
-        .baseUrl("https://api.coincap.io/")
-        .client(OkHttpClient.Builder().build())
-        .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .build()
 
-*/

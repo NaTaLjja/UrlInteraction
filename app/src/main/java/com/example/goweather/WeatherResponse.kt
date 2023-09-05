@@ -1,6 +1,6 @@
 package com.example.goweather
 
 data class WeatherResponse(
-    val temp:String,
-    val wind:String,
-    val desctip: String)
+    val temperature: String,
+    val wind: String,
+    val description: String)
