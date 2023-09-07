@@ -43,24 +43,3 @@ class MainActivity: Activity() {
         }
     }
 }
-/*
-client.getWeather().enqueue(object:retrofit2.Callback<WeatherResponse>{
-                override fun onResponse(
-                    call: retrofit2.Call<WeatherResponse>,
-                    response: retrofit2.Response<WeatherResponse>
-                ) {
-                    if(response.isSuccessful){
-                        textTemperature.append("${response.body()?.temperature}")
-                        textWind.append("${response.body()?.wind}")
-                        textDescription.append("${response.body()?.description}")
-                    }
-                }
-
-                override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
-                    Toast.makeText(this@MainActivity, "Error", Toast.LENGTH_SHORT).show()
-                }
-
-            })
-
-
-*/

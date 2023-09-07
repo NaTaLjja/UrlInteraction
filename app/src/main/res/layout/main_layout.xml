@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:clickable="true"
-        android:background="?attr/selectableItemBackground">
+        android:background="#DEEBF1">
         
         <ImageView
             android:id="@+id/photo"
@@ -64,7 +64,7 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#52BA56"
+            android:background="#8DD18F"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
